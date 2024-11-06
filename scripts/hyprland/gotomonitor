@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+CURRENT=$(hyprctl activeworkspace | grep -Po '^(?!.*grep).*monitorID: \K\d+$')
+ALL=$(hyprctl workspaces | grep -Po '^(?!.*grep).*monitorID: \K\d+$')
+
+FIRST=$(echo $ALL | sort | head -n 1)
+LAST=$(echo $ALL | sort | tail -n 1)
+
+if [[ $1 == "left" ]]; then
+
+	if [[ $CURRENT == $FIRST ]]; then
+		hyprctl dispatch focusmonitor $LAST
+	else
+		hyprctl dispatch focusmonitor $(($CURRENT-1))
+	fi
+
+elif [[ $1 == "right" ]]; then
+
+        if [[ $CURRENT == $LAST ]]; then
+                hyprctl dispatch focusmonitor $FIRST
+        else
+                hyprctl dispatch focusmonitor $(($CURRENT+1))
+        fi
+fi

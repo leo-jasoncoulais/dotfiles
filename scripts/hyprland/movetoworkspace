@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+CURRENT=$(hyprctl activeworkspace | grep -oP 'workspace ID \K\d+')
+ALL=$(hyprctl workspaces | grep -oP 'workspace ID \K\d+')
+
+MONITOR=$(hyprctl activeworkspace | grep -Po '^(?!.*grep).*monitorID: \K\d+$')
+
+FIRST=$(echo $ALL | sort | head -n 1)
+LAST=$(echo $ALL | sort | tail -n 1)
+
+WINDOWS_NUMBER=$(hyprctl activeworkspace | grep -Po '^(?!.*grep).*windows: \K\d+$')
+
+if [[ $1 == "left" ]]; then
+
+	if [[ $CURRENT == $FIRST ]]; then
+		hyprctl dispatch movetoworkspace e-1
+	else
+		hyprctl dispatch movetoworkspace $(($CURRENT-1))
+	fi
+
+elif [[ $1 == "right" ]]; then
+
+        if [[ $CURRENT == $LAST ]] && [[ $WINDOWS_NUMBER == "1" ]]; then
+                hyprctl dispatch movetoworkspace e+1
+		hyprctl dispatch workspace e-1
+		hyprctl dispatch workspace e+1
+	else
+                hyprctl dispatch movetoworkspace $(($CURRENT+1))
+        fi
+fi
