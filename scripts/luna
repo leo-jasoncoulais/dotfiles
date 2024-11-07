@@ -1,22 +1,31 @@
 #!/bin/bash
 
-if [[ -z $1 ]]; then
-	echo "No package specified."
+if [[ $(id -u) == 0 ]]; then
+	echo "Don't run my with root permissions."
 	exit
 fi
 
-CODE=$(curl -s -o /dev/null -w "%{http_code}" https://aur.archlinux.org/packages/$1)
+if [[ $1 == "aur" ]]; then
 
-if [[ $CODE == 404 ]]; then
-	echo "This package wasn't found."
-	exit
-fi
+	if [[ -z $2 ]]; then
+		echo "No package specified."
+		exit
+	fi
 
-cd /tmp
-git clone https://aur.archlinux.org/$1.git
+	CODE=$(curl -s -o /dev/null -w "%{http_code}" https://aur.archlinux.org/packages/$2)
 
-cd $1
-makepkg -si
+	if [[ $CODE == 404 ]]; then
+		echo "This package wasn't found."
+		exit
+	fi
 
-cd -
-rm -rf /tmp/$1
+	cd /tmp
+	git clone https://aur.archlinux.org/$2.git
+
+	cd $2
+	makepkg -si
+
+	cd -
+	rm -rf /tmp/$2
+
+else sudo pacman $*; fi
