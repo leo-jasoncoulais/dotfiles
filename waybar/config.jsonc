@@ -116,6 +116,6 @@
     "custom/power": {
         "format": "󰤆",
         "tooltip": false,
-        "on-click": "rofi -show power-menu -modi power-menu:$HOME/.local/bin/rofi/rofi-power-menu &"
+        "on-click": "rofi -show power-menu -modi power-menu:$HOME/.local/bin/waybar/rofi-power-menu &"
     }
 }
