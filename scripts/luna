@@ -5,7 +5,7 @@ if [[ $(id -u) == 0 ]]; then
 	exit
 fi
 
-if [[ $1 == "aur" ]]; then
+if [[ $1 == "-A" || $1 == "--aur" ]]; then
 
 	if [[ -z $2 ]]; then
 		echo "No package specified."
@@ -27,5 +27,22 @@ if [[ $1 == "aur" ]]; then
 
 	cd -
 	rm -rf /tmp/$2
+
+elif [[ $1 == "-h" || $1 == "--help" ]]; then
+
+echo "utilisation :  luna <opération> [...]
+opérations :
+	luna {-h --help}
+	luna {-V --version}
+	luna {-D --database} <options > <paquet(s)>
+	luna {-F --files}    [options ] [fichier(s)]
+	luna {-Q --query}    [options ] [paquet(s)]
+	luna {-R --remove}   [options ] <paquet(s)>
+	luna {-S --sync}     [options ] [paquet(s)]
+	luna {-T --deptest}  [options ] [paquet(s)]
+	luna {-U --upgrade}  [options ] <fichier(s)>
+	luna {-A --aur}      [paquet(s)]
+
+utiliser « luna {-h --help} » avec une opération pour afficher les options disponibles."
 
 else sudo pacman $*; fi
