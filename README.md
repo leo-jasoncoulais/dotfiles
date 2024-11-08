@@ -10,6 +10,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 - [Installation](#installation)
 - [Customization](#customization)
 - [Updating](#updating)
+- [Acknowledgments](#acknowledgments)
 - [Contribution](#contribution)
 - [License](#license)
 
@@ -61,6 +62,10 @@ To synchronize your dotfiles with the latest changes, pull the updates from the 
 git pull origin main
 ./install.sh
 ```
+
+## Acknowledgments
+
+I'd like to thank [Catppuccin](https://github.com/catppuccin) for his work, which I've taken over in part to build my working environment. 
 
 ## Contribution
 
