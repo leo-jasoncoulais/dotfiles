@@ -9,23 +9,23 @@ fi
 
 sudo pacman -Syyu
 sudo pacman -S --noconfirm zsh curl neofetch waybar rofi
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-echo 'export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH' >> ~/.zshrc
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# echo 'export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH' >> ~/.zshrc
 
 # Install dotfiles
 
-ln -sf ~/.config/waybar ~/dotfiles/waybar
-ln -sf ~/.config/rofi ~/dotfiles/rofi
-ln -sf ~/.config/hypr ~/dotfiles/hyprland
-ln -sf ~/.config/neofetch ~/dotfiles/neofetch
+ln -sf ~/dotfiles/waybar ~/.config/waybar
+ln -sf ~/dotfiles/rofi ~/.config/rofi
+ln -sf ~/dotfiles/hyprland ~/.config/hypr
+ln -sf ~/dotfiles/neofetch ~/.config/neofetch
 
 # Install scripts
 
-ln -sf ~/.local/bin ~/dotfiles/scripts
+ln -sf ~/dotfiles/scripts ~/.local/bin
 
 # Install fonts
 
-ln -sf /usr/share/fonts/JetBrainsFonts ~/dotfiles/JetBrainsFonts
+ln -sf ~/dotfiles/JetBrainsFonts /usr/share/fonts/JetBrainsFonts
 
 # Complete
 
