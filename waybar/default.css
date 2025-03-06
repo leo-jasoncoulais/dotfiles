@@ -26,11 +26,11 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-  color: rgb(8, 22, 23);
+  color: VERY_DARK;
 }
 
 #workspaces button.urgent {
-  color: rgb(54, 72, 57);
+  color: DEFAULT;
 }
 
 #custom-reload,
@@ -44,7 +44,7 @@ window#waybar.hidden {
   border-radius: 4px;
   margin: 6px 3px;
   padding: 4px 12px;
-  background-color: rgb(8, 22, 23);
+  background-color: VERY_DARK;
   color: #fff;
 }
 
@@ -58,15 +58,15 @@ window#waybar.hidden {
   margin-left: 5px;
   font-size: 15px;
   border-radius: 8px 0px 0px 8px;
-  color: rgb(92, 109, 91);
+  color: LIGHT;
 }
 
 #custom-reload {
-  background-color: rgb(54, 72, 57);
+  background-color: DEFAULT;
 }
 
 #battery {
-  background-color: rgb(92, 109, 91);
+  background-color: LIGHT;
 }
 
 #battery.warning,
@@ -76,32 +76,32 @@ window#waybar.hidden {
 }
 
 #battery.charging {
-  background-color: rgb(222, 234, 191);
+  background-color: VERY_LIGHT;
 }
 
 #backlight {
-  background-color: rgb(54, 72, 57);
+  background-color: DEFAULT;
 }
 
 #wireplumber {
-  background-color: rgb(28, 50, 36);
+  background-color: DARK;
 }
 
 #network {
-  background-color: rgb(222, 234, 191);
+  background-color: VERY_LIGHT;
 }
 
 #clock {
-  background-color: rgb(54, 72, 57);
+  background-color: DEFAULT;
 }
 
 tooltip {
   border-radius: 8px;
   padding: 15px;
-  background-color: rgb(8, 22, 23);
+  background-color: VERY_DARK;
 }
 
 tooltip label {
   padding: 5px;
-  background-color: rgb(8, 22, 23);
+  background-color: VERY_DARK;
 }
