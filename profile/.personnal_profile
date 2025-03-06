@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo
+neofetch
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+source ~/connect_network.autocomplete
+comm -23 <(pacman -Qqett | sort) <(pacman -Qqg base-devel | sort | uniq) >/dev/null 1>packages.txt

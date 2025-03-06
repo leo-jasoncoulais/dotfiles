@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then echo "Please specify network."; exit; fi
+
+NETWORKS=$(iwctl station wlan0 get-networks | tail -n +5 | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" | cut -c 7- | cut -d" " -f1)
+
+if ! echo "$NETWORKS" | grep -Fq "$1"; then echo "This network wasn't found."; exit; fi
+
+iwctl station wlan0 connect $1
+sudo dhclient

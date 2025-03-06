@@ -9,8 +9,7 @@ fi
 
 sudo pacman -Syyu
 sudo pacman -S --noconfirm zsh curl neofetch waybar rofi
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# echo 'export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH' >> ~/.zshrc
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install dotfiles
 
@@ -18,6 +17,11 @@ ln -sf ~/dotfiles/waybar ~/.config/waybar
 ln -sf ~/dotfiles/rofi ~/.config/rofi
 ln -sf ~/dotfiles/hyprland ~/.config/hypr
 ln -sf ~/dotfiles/neofetch ~/.config/neofetch
+
+# Install profile
+
+cp ~/dotfiles/profile/connect_network* ~/dotfiles/profile/.personnal_profile ~ 
+echo "source .personnal_profile" >> ~/.zshrc
 
 # Install scripts
 
